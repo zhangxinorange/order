@@ -176,10 +176,13 @@ public class IndexController {
 
         Person person=personService.login(userName, password);
         if (null == person) {
-        	
             return ResultUtil.error(2, "用户名密码错误，请重新输入");
-
         }
+        else {
+			if (person.getStatus().equals(1)) {
+				return ResultUtil.error(1, "当前用户账号被禁用，请联系管理员");
+			}
+		}
         request.getSession().setAttribute("indexUser", person);
         return ResultUtil.success();
     }

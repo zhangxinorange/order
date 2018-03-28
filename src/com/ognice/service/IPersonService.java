@@ -28,4 +28,6 @@ public interface IPersonService {
     public Person login(String userName, String password);
     
     public Person getPersonByUNameAndPName(String uName,String pName);
+    
+    boolean checkUser(String userName);
 }

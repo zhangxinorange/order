@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>订单管理系统</title>
 <link href="${ctx }/static/css/style.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="${ctx }/static/js/jquery.js"></script>
 
@@ -31,6 +31,12 @@ function changeLi()
 {
 	$("#wode").attr("css","active");
 	$("#addLi").removeClass("active");
+}
+
+function changeLi_1()
+{
+	$("li").removeClass("active");
+	$("#userList").attr("css","active");
 }
 </script>
 
@@ -58,10 +64,16 @@ function changeLi()
     <span><img src="${ctx }/static/images/leftico02.png" /></span>用户管理
     </div>
     <ul class="menuson">
-        <li><cite></cite><a href="#">用户查看</a><i></i></li>
-        <li><cite></cite><a href="#">添加用户</a><i></i></li>
+        <li id="userList" class="active"><cite></cite><a href="${ctx }/person/pList" target="rightFrame">用户查看</a><i></i></li>
+        <li id="addLis"><cite></cite><a href="${ctx }/person/addPerson" target="rightFrame">添加用户</a><i></i></li>
         </ul>     
-    </dd>   
+    </dd> 
+    <dd><div class="title"><span><img src="${ctx }/static/images/leftico03.png" /></span>系统管理</div>
+    <ul class="menuson">
+        <li><cite></cite><a href="${ctx }/person/gotoPage" target="rightFrame">分页条数变更</a><i></i></li>
+        
+    </ul>    
+    </dd>    
     
     
     </dl>

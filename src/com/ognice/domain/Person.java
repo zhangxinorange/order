@@ -127,6 +127,24 @@ public class Person implements java.io.Serializable{
 		this.personname = personname;
 		this.username = username;
 	}
+    private String sexStr;
+
+	public String getSexStr() {
+		return sexStr;
+	}
+
+	public void setSexStr(String sexStr) {
+		this.sexStr = sexStr;
+	}
+    private String statusStr;
+
+	public String getStatusStr() {
+		return statusStr;
+	}
+
+	public void setStatusStr(String statusStr) {
+		this.statusStr = statusStr;
+	}
     
     
 }

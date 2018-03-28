@@ -12,7 +12,9 @@
 		<result column="post" property="post" jdbcType="VARCHAR" />
 		<result column="username" property="username" jdbcType="VARCHAR" />
 		<result column="status" property="status" jdbcType="INTEGER" />
-		<result column="createDate" property="createDate" jdbcType="TIMESTAMP"/>
+		<result column="createDate" property="createDate" jdbcType="TIMESTAMP" />
+		<result column="sexStr" property="sexStr" jdbcType="VARCHAR" />
+		<result column="statusStr" property="statusStr" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		id, personName, password, role, sex, phone, company, post,
@@ -30,14 +32,17 @@
 		where id = #{id,jdbcType=BIGINT}
 	</delete>
 	<insert id="insert" parameterType="com.ognice.domain.Person">
-		insert into person (id, personName, password,
+		insert into person (id,
+		personName, password,
 		role, sex, phone, company,
 		post, username,status)
 		values (#{id,jdbcType=BIGINT}, #{personname,jdbcType=VARCHAR},
 		#{password,jdbcType=VARCHAR},
-		#{role,jdbcType=INTEGER}, #{sex,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR},
+		#{role,jdbcType=INTEGER},
+		#{sex,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR},
 		#{company,jdbcType=VARCHAR},
-		#{post,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},#{status,jdbcType=INTEGER})
+		#{post,jdbcType=VARCHAR},
+		#{username,jdbcType=VARCHAR},#{status,jdbcType=INTEGER})
 	</insert>
 	<insert id="insertSelective" parameterType="com.ognice.domain.Person">
 		insert into person
@@ -135,14 +140,19 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.ognice.domain.Person">
 		update person
-		set personName = #{personname,jdbcType=VARCHAR},
-		password = #{password,jdbcType=VARCHAR},
+		set
+		personName = #{personname,jdbcType=VARCHAR},
+		password =
+		#{password,jdbcType=VARCHAR},
 		role = #{role,jdbcType=INTEGER},
-		sex = #{sex,jdbcType=INTEGER},
+		sex =
+		#{sex,jdbcType=INTEGER},
 		phone = #{phone,jdbcType=VARCHAR},
-		company = #{company,jdbcType=VARCHAR},
+		company =
+		#{company,jdbcType=VARCHAR},
 		post = #{post,jdbcType=VARCHAR},
-		username = #{username,jdbcType=VARCHAR}
+		username =
+		#{username,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=BIGINT}
 	</update>
 
@@ -160,57 +170,76 @@
 		<include refid="Base_Column_List" />
 		from person where username = #{0} AND personName = #{1}
 	</select>
-	
+
 	<select id="getAllPerson" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
+		,CASE sex
+		WHEN 0
+		THEN
+		'男'
+		ELSE
+		'女'
+		END AS sexStr
+		,CASE status
+		WHEN 0
+		THEN
+		'正常'
+		ELSE
+		'禁用'
+		END AS statusStr
 		from person where 1=1
 		<if test="data.personname!=null and data.personname!=''">
 			and (lower(personname) like
-				CONCAT('%',#{data.personname},'%')  
-				
-			or 
+			CONCAT('%',#{data.personname},'%')
+
+			or
 			upper(personname) like
-				CONCAT('%',#{data.personname},'%')		
-				)
+			CONCAT('%',#{data.personname},'%')
+			)
 		</if>
-		
+
 		<if test="data.username!=null and data.username!=''">
 			and (lower(username) like
-				CONCAT('%',#{data.username},'%')  
-				
-			or 
+			CONCAT('%',#{data.username},'%')
+
+			or
 			upper(username) like
-				CONCAT('%',#{data.username},'%')		
-				)
+			CONCAT('%',#{data.username},'%')
+			)
 		</if>
 		order by createDate desc
-		 limit #{start},#{end} 
+		limit #{start},#{end}
 	</select>
-	
-	<select id="countAllPerson" parameterType="com.ognice.domain.Person">
-  select * from person where 1=1 
-  <if test="personname!=null and personname!=''">
+
+	<select id="countAllPerson" resultType="integer"
+		parameterType="com.ognice.domain.Person">
+		select count(*) from person where 1=1
+		<if test="personname!=null and personname!=''">
 			and (lower(personname) like
-				CONCAT('%',#{personname},'%')  
-				
-			or 
+			CONCAT('%',#{personname},'%')
+
+			or
 			upper(personname) like
-				CONCAT('%',#{personname},'%')		
-				)
+			CONCAT('%',#{personname},'%')
+			)
 		</if>
-		
+
 		<if test="username!=null and username!=''">
 			and (lower(username) like
-				CONCAT('%',#{username},'%')  
-				
-			or 
+			CONCAT('%',#{username},'%')
+
+			or
 			upper(username) like
-				CONCAT('%',#{username},'%')		
-				)
+			CONCAT('%',#{username},'%')
+			)
 		</if>
-  </select>
-  <select id="queryAllPerson" resultMap="BaseResultMap">
-  	select * from person 
-  </select>
+	</select>
+	<select id="queryAllPerson" resultMap="BaseResultMap">
+		select * from person
+	</select>
+	
+	<select id="checkUserName" resultType="Integer" >
+		select count(*) from person p where p.username = #{0}
+	</select>
 </mapper>

@@ -130,14 +130,19 @@ public class OrderController {
 		if (pageIndex==null||pageIndex<1) {
 			pageIndex=1;
 		}
+		Integer pageSize=(Integer)request.getServletContext().getAttribute("oPage");
+		if (pageSize==null) {
+			pageSize=PageConstants.PAGESIZE;
+		}
 		if (person.getRole()==null||person.getRole().equals(1)) {
-			Map map=orderService.queryAllOrderByUserIdListForPage(person.getId(), orderName, pageIndex, PageConstants.PAGESIZE);
+			
+			Map map=orderService.queryAllOrderByUserIdListForPage(person.getId(), orderName, pageIndex, pageSize);
 			model.addAttribute("data", map);
 			model.addAttribute("person", person);
 			return "user/orderList";
 		}
 		else {
-			Map map=orderService.queryAllOrderListForPage(orderName, userName, pageIndex, PageConstants.PAGESIZE);
+			Map map=orderService.queryAllOrderListForPage(orderName, userName, pageIndex, pageSize);
 			model.addAttribute("data", map);
 			model.addAttribute("person", person);
 			return "admin/orderList";

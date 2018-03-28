@@ -47,7 +47,6 @@ public class PersonServiceImpl implements IPersonService {
 
 	@Override
 	public int updateByPrimaryKeySelective(Person record) {
-		// TODO Auto-generated method stub
 		return personMapper.updateByPrimaryKeySelective(record);
 	}
 
@@ -108,6 +107,12 @@ public class PersonServiceImpl implements IPersonService {
 		result.put("pageIndex", pageIndex);
 		result.put("pageCount", pageCount);
 		return result;
+	}
+
+	@Override
+	public boolean checkUser(String userName) {
+		Integer num=personMapper.checkUserName(userName);
+		return num==0;
 	}
 
 }

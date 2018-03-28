@@ -29,4 +29,6 @@ public interface PersonMapper {
     public List<Person> queryAllPerson();
     
     public Integer countAllPerson(Person person);
+    
+    Integer checkUserName(String userName);
 }

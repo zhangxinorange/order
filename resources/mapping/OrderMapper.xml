@@ -74,8 +74,8 @@
    <include refid="Base_Column_List_t" />	
     from ordert  t left join person p on p.id=t.uId
     where 1=1 and 1=1
-    <if test="id!=null and id!=''">
-   	and  t.uId = #{id,jdbcType=BIGINT} 
+    <if test="data.id!=null and data.id!=''">
+   	and  t.uId = #{data.id,jdbcType=BIGINT} 
     </if>
     <if test="data.ordername!=null and data.ordername!=''">
     	and (lower(t.ordername) like
