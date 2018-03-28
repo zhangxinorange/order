@@ -101,6 +101,8 @@
   
   
   
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from ordert
     where id = #{id,jdbcType=BIGINT}

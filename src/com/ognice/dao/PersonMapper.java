@@ -1,7 +1,9 @@
 package com.ognice.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.ognice.domain.Person;
-import com.ognice.domain.User;
 
 public interface PersonMapper {
     int deleteByPrimaryKey(Long id);
@@ -20,4 +22,11 @@ public interface PersonMapper {
     
     
     public Person getPersonByUNameAndPName(String uName,String pName);
+    
+    
+    public List<Person> getAllPerson(Map map);
+    
+    public List<Person> queryAllPerson();
+    
+    public Integer countAllPerson(Person person);
 }

@@ -1,154 +1,216 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ognice.dao.PersonMapper" >
-  <resultMap id="BaseResultMap" type="com.ognice.domain.Person" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="personName" property="personname" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="role" property="role" jdbcType="INTEGER" />
-    <result column="sex" property="sex" jdbcType="INTEGER" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="company" property="company" jdbcType="VARCHAR" />
-    <result column="post" property="post" jdbcType="VARCHAR" />
-    <result column="username" property="username" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, personName, password, role, sex, phone, company, post, username
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
-    <include refid="Base_Column_List" />
-    from person
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from person
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.ognice.domain.Person" >
-    insert into person (id, personName, password, 
-      role, sex, phone, company, 
-      post, username)
-    values (#{id,jdbcType=BIGINT}, #{personname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{role,jdbcType=INTEGER}, #{sex,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, 
-      #{post,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.ognice.domain.Person" >
-    insert into person
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="personname != null" >
-        personName,
-      </if>
-      <if test="password != null" >
-        password,
-      </if>
-      <if test="role != null" >
-        role,
-      </if>
-      <if test="sex != null" >
-        sex,
-      </if>
-      <if test="phone != null" >
-        phone,
-      </if>
-      <if test="company != null" >
-        company,
-      </if>
-      <if test="post != null" >
-        post,
-      </if>
-      <if test="username != null" >
-        username,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
-      <if test="personname != null" >
-        #{personname,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="role != null" >
-        #{role,jdbcType=INTEGER},
-      </if>
-      <if test="sex != null" >
-        #{sex,jdbcType=INTEGER},
-      </if>
-      <if test="phone != null" >
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="company != null" >
-        #{company,jdbcType=VARCHAR},
-      </if>
-      <if test="post != null" >
-        #{post,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null" >
-        #{username,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ognice.domain.Person" >
-    update person
-    <set >
-      <if test="personname != null" >
-        personName = #{personname,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="role != null" >
-        role = #{role,jdbcType=INTEGER},
-      </if>
-      <if test="sex != null" >
-        sex = #{sex,jdbcType=INTEGER},
-      </if>
-      <if test="phone != null" >
-        phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="company != null" >
-        company = #{company,jdbcType=VARCHAR},
-      </if>
-      <if test="post != null" >
-        post = #{post,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null" >
-        username = #{username,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.ognice.domain.Person" >
-    update person
-    set personName = #{personname,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      role = #{role,jdbcType=INTEGER},
-      sex = #{sex,jdbcType=INTEGER},
-      phone = #{phone,jdbcType=VARCHAR},
-      company = #{company,jdbcType=VARCHAR},
-      post = #{post,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  
-  
-  
-  <select id="login" resultMap="BaseResultMap">
+<mapper namespace="com.ognice.dao.PersonMapper">
+	<resultMap id="BaseResultMap" type="com.ognice.domain.Person">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="personName" property="personname" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="role" property="role" jdbcType="INTEGER" />
+		<result column="sex" property="sex" jdbcType="INTEGER" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="company" property="company" jdbcType="VARCHAR" />
+		<result column="post" property="post" jdbcType="VARCHAR" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="createDate" property="createDate" jdbcType="TIMESTAMP"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, personName, password, role, sex, phone, company, post,
+		username,status,createDate
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from person
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from person
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.ognice.domain.Person">
+		insert into person (id, personName, password,
+		role, sex, phone, company,
+		post, username,status)
+		values (#{id,jdbcType=BIGINT}, #{personname,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{role,jdbcType=INTEGER}, #{sex,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR},
+		#{company,jdbcType=VARCHAR},
+		#{post,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},#{status,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective" parameterType="com.ognice.domain.Person">
+		insert into person
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="personname != null">
+				personName,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="role != null">
+				role,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="company != null">
+				company,
+			</if>
+			<if test="post != null">
+				post,
+			</if>
+			<if test="username != null">
+				username,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="personname != null">
+				#{personname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="role != null">
+				#{role,jdbcType=INTEGER},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=INTEGER},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="company != null">
+				#{company,jdbcType=VARCHAR},
+			</if>
+			<if test="post != null">
+				#{post,jdbcType=VARCHAR},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.ognice.domain.Person">
+		update person
+		<set>
+			<if test="personname != null">
+				personName = #{personname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="role != null">
+				role = #{role,jdbcType=INTEGER},
+			</if>
+			<if test="sex != null">
+				sex = #{sex,jdbcType=INTEGER},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="company != null">
+				company = #{company,jdbcType=VARCHAR},
+			</if>
+			<if test="post != null">
+				post = #{post,jdbcType=VARCHAR},
+			</if>
+			<if test="username != null">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.ognice.domain.Person">
+		update person
+		set personName = #{personname,jdbcType=VARCHAR},
+		password = #{password,jdbcType=VARCHAR},
+		role = #{role,jdbcType=INTEGER},
+		sex = #{sex,jdbcType=INTEGER},
+		phone = #{phone,jdbcType=VARCHAR},
+		company = #{company,jdbcType=VARCHAR},
+		post = #{post,jdbcType=VARCHAR},
+		username = #{username,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+
+
+
+	<select id="login" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from person where username = #{0} AND password = #{1}
 	</select>
-	
-	
-<select id="getPersonByUNameAndPName" resultMap="BaseResultMap">
+
+
+	<select id="getPersonByUNameAndPName" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from person where username = #{0} AND personName = #{1}
 	</select>
+	
+	<select id="getAllPerson" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from person where 1=1
+		<if test="data.personname!=null and data.personname!=''">
+			and (lower(personname) like
+				CONCAT('%',#{data.personname},'%')  
+				
+			or 
+			upper(personname) like
+				CONCAT('%',#{data.personname},'%')		
+				)
+		</if>
+		
+		<if test="data.username!=null and data.username!=''">
+			and (lower(username) like
+				CONCAT('%',#{data.username},'%')  
+				
+			or 
+			upper(username) like
+				CONCAT('%',#{data.username},'%')		
+				)
+		</if>
+		order by createDate desc
+		 limit #{start},#{end} 
+	</select>
+	
+	<select id="countAllPerson" parameterType="com.ognice.domain.Person">
+  select * from person where 1=1 
+  <if test="personname!=null and personname!=''">
+			and (lower(personname) like
+				CONCAT('%',#{personname},'%')  
+				
+			or 
+			upper(personname) like
+				CONCAT('%',#{personname},'%')		
+				)
+		</if>
+		
+		<if test="username!=null and username!=''">
+			and (lower(username) like
+				CONCAT('%',#{username},'%')  
+				
+			or 
+			upper(username) like
+				CONCAT('%',#{username},'%')		
+				)
+		</if>
+  </select>
+  <select id="queryAllPerson" resultMap="BaseResultMap">
+  	select * from person 
+  </select>
 </mapper>

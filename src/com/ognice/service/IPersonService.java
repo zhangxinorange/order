@@ -1,9 +1,8 @@
 package com.ognice.service;
 
-import java.util.List;
+import java.util.Map;
 
 import com.ognice.domain.Person;
-import com.ognice.domain.User;
 
 /***
  * 用户相关接口
@@ -23,7 +22,8 @@ public interface IPersonService {
 
     int updateByPrimaryKey(Person record);
     
-    List<Person> queryAllPersonList(String personName,String userName,Integer pageIndex);
+    @SuppressWarnings("rawtypes")
+	Map queryAllPersonList(String personName,String userName,Integer pageIndex,Integer pageSize);
     
     public Person login(String userName, String password);
     

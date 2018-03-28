@@ -1,7 +1,14 @@
 package com.ognice.domain;
 
-public class Person {
-    private Long id;
+import java.util.Date;
+
+public class Person implements java.io.Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Long id;
 
     private String personname;
 
@@ -18,6 +25,10 @@ public class Person {
     private String post;
 
     private String username;
+    
+    private Integer status;
+    
+    private Date createDate;
 
     public Long getId() {
         return id;
@@ -90,4 +101,32 @@ public class Person {
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
     }
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Person() {
+		super();
+	}
+
+	public Person(String personname, String username) {
+		super();
+		this.personname = personname;
+		this.username = username;
+	}
+    
+    
 }
