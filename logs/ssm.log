@@ -1,0 +1,96 @@
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[domain.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template domain.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\domain.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[controller.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template controller.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\controller.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[service.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template service.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\service.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[service-impl.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template service-impl.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\service-impl.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[mapper.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template mapper.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\mapper.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[mapper-xml.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template mapper-xml.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\mapper-xml.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-form.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template jsp-form.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\jsp-form.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-page.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template jsp-page.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\jsp-page.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[domain.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template domain.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\domain.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[controller.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template controller.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\controller.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[service.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template service.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\service.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[service-impl.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template service-impl.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\service-impl.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[mapper.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template mapper.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\mapper.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[mapper-xml.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template mapper-xml.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\mapper-xml.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-form.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template jsp-form.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\jsp-form.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-page.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template jsp-page.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\jsp-page.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[domain.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template domain.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\domain.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[controller.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template controller.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\controller.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[service.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template service.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\service.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[service-impl.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template service-impl.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\service-impl.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[mapper.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template mapper.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\mapper.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[mapper-xml.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template mapper-xml.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\mapper-xml.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-form.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template jsp-form.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\jsp-form.ftl
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-page.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-21 21:02:35][freemarker.cache]Compiling FreeMarker template jsp-page.ftl[zh_CN,UTF-8,parsed]  from E:\job\school\school\ssmstore\WebContent\ftls\jsp-page.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[domain.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template domain.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\domain.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[controller.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template controller.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\controller.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[service.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template service.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\service.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[service-impl.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template service-impl.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\service-impl.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[mapper.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template mapper.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\mapper.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[mapper-xml.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template mapper-xml.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\mapper-xml.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-form.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template jsp-form.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\jsp-form.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-page.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template jsp-page.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\jsp-page.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[domain.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template domain.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\domain.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[controller.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template controller.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\controller.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[service.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template service.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\service.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[service-impl.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template service-impl.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\service-impl.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[mapper.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template mapper.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\mapper.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[mapper-xml.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template mapper-xml.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\mapper-xml.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-form.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template jsp-form.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\jsp-form.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-page.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template jsp-page.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\jsp-page.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[domain.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template domain.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\domain.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[controller.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template controller.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\controller.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[service.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template service.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\service.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[service-impl.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template service-impl.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\service-impl.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[mapper.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template mapper.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\mapper.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[mapper-xml.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template mapper-xml.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\mapper-xml.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-form.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template jsp-form.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\jsp-form.ftl
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Could not find template in cache, creating new one; id=[jsp-page.ftl[zh_CN,UTF-8,parsed] ]
+[DEBUG] [2017-06-22 11:22:51][freemarker.cache]Compiling FreeMarker template jsp-page.ftl[zh_CN,UTF-8,parsed]  from D:\code\school\ssmstore\WebContent\ftls\jsp-page.ftl

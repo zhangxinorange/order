@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ognice.dao.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.ognice.domain.Order" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="orderName" property="ordername" jdbcType="VARCHAR" />
+    <result column="customName" property="customname" jdbcType="VARCHAR" />
+    <result column="orderGood" property="ordergood" jdbcType="VARCHAR" />
+    <result column="ordernum" property="ordernum" jdbcType="DOUBLE" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="uId" property="uId" jdbcType="BIGINT"/>
+    <result column="ordertotal" property="ordertotal" jdbcType="DOUBLE"/>
+     <result column="orderDate" property="orderDate" jdbcType="TIMESTAMP" />
+     <result column="personname" property="userName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orderName, customName, orderGood, ordernum, remark,uId,ordertotal,orderDate
+  </sql>
+  
+  <sql id="Base_Column_List_t" >
+    t.id, t.orderName, t.customName, t.orderGood, t.ordernum, t.remark,t.uId,t.ordertotal,t.orderDate,p.personname 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ordert
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  
+   <select id="queryAllOrderByUserIdList" resultMap="BaseResultMap" parameterType="com.ognice.domain.Order">
+    select 
+    <include refid="Base_Column_List_t" /> 
+    from ordert t left join person p on p.id=t.uId
+    where 1=1
+    <if test="id!=null and id!=''">
+   and  t.uId = #{id,jdbcType=BIGINT} 
+    </if>
+    <if test="ordername!=null and ordername!=''">
+    	and lower(ordername) like
+				CONCAT('%',#{ordername},'%')  
+    </if>
+  </select>
+  
+  <select id="countAllOrderByUserIdList" resultType="integer" parameterType="com.ognice.domain.Order">
+    select 
+   count(*)
+    from ordert t left join person p on p.id=t.uId 
+    where 1=1 
+     <if test="id!=null and id!=''">
+   and  t.uId = #{id,jdbcType=BIGINT} 
+    </if>
+    <if test="ordername!=null and ordername!=''">
+    	and (lower(t.ordername) like
+				CONCAT('%',#{ordername},'%')  or 
+			upper(t.ordername) like
+				CONCAT('%',#{ordername},'%')	
+				)
+    </if>
+    
+    <if test="userName!=null and userName!=''">
+    	and (lower(p.personname) like
+				CONCAT('%',#{userName},'%')  
+				
+			or 
+			upper(p.personname) like
+				CONCAT('%',#{userName},'%')		
+				)
+    </if>
+  </select>
+  
+  <select id="queryAllOrderByUserIdListPage"  resultMap="BaseResultMap" >
+    select 
+   <include refid="Base_Column_List_t" />	
+    from ordert  t left join person p on p.id=t.uId
+    where 1=1 and 1=1
+    <if test="id!=null and id!=''">
+   	and  t.uId = #{id,jdbcType=BIGINT} 
+    </if>
+    <if test="data.ordername!=null and data.ordername!=''">
+    	and (lower(t.ordername) like
+				CONCAT('%',#{data.ordername},'%')  or 
+			upper(t.ordername) like
+				CONCAT('%',#{data.ordername},'%')	
+				)
+    </if>
+    
+    <if test="data.userName!=null and data.userName!='' ">
+    	and (lower(p.personname) like
+				CONCAT('%',#{data.userName},'%')  
+				
+			or 
+			upper(p.personname) like
+				CONCAT('%',#{data.userName},'%')		
+				)
+    </if>
+    
+    order by orderDate desc	
+    limit #{start},#{end} 
+  </select>
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ordert
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ognice.domain.Order" >
+    insert into ordert (id, orderName, customName, 
+      orderGood, ordernum, remark,uId,ordertotal
+      )
+    values (#{id,jdbcType=BIGINT}, #{ordername,jdbcType=VARCHAR}, #{customname,jdbcType=VARCHAR}, 
+      #{ordergood,jdbcType=VARCHAR}, #{ordernum,jdbcType=DOUBLE}, #{remark,jdbcType=VARCHAR},#{uId,jdbcType=VARCHAR},#{ordertotal,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ognice.domain.Order" >
+    insert into ordert
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ordername != null" >
+        orderName,
+      </if>
+      <if test="customname != null" >
+        customName,
+      </if>
+      <if test="ordergood != null" >
+        orderGood,
+      </if>
+      <if test="ordernum != null" >
+        ordernum,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="ordername != null" >
+        #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="customname != null" >
+        #{customname,jdbcType=VARCHAR},
+      </if>
+      <if test="ordergood != null" >
+        #{ordergood,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null" >
+        #{ordernum,jdbcType=DOUBLE},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ognice.domain.Order" >
+    update ordert
+    <set >
+      <if test="ordername != null" >
+        orderName = #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="customname != null" >
+        customName = #{customname,jdbcType=VARCHAR},
+      </if>
+      <if test="ordergood != null" >
+        orderGood = #{ordergood,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null" >
+        ordernum = #{ordernum,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertotal != null" >
+        ordertotal = #{ordertotal,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ognice.domain.Order" >
+    update ordert
+    set orderName = #{ordername,jdbcType=VARCHAR},
+      customName = #{customname,jdbcType=VARCHAR},
+      orderGood = #{ordergood,jdbcType=VARCHAR},
+      ordernum = #{ordernum,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

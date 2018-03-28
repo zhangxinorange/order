@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ognice.dao.StoreMapper">
+	<resultMap id="BaseResultMap" type="com.ognice.domain.Store">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="c_id" property="c_id" jdbcType="INTEGER" />
+		<result column="r_date" property="r_date" jdbcType="TIMESTAMP" />
+		<result column="r_state" property="r_state" jdbcType="INTEGER" />
+		<result column="r_id" property="r_id" jdbcType="INTEGER" />
+		<result column="r_unit" property="r_unit" jdbcType="VARCHAR" />
+		<result column="r_name" property="r_name" jdbcType="VARCHAR" />
+		<result column="r_comp" property="r_comp" jdbcType="VARCHAR" />
+		<result column="r_num" property="r_num" jdbcType="INTEGER" />
+		<result column="r_repertory" property="r_repertory" jdbcType="VARCHAR" />
+		<result column="r_operate" property="r_operate" jdbcType="VARCHAR" />
+		<result column="r_minnum" property="r_minnum" jdbcType="INTEGER" />
+		<result column="r_maxnum" property="r_maxnum" jdbcType="INTEGER" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List"> `id` , `c_id` , `r_date` , `r_state` , `r_id` , `r_unit` , `r_name` , `r_comp` , `r_num` , `r_repertory` , `r_operate` , `r_minnum` , `r_maxnum` , `remark`
+	</sql>
+	<select id="allNum" resultType="java.lang.Integer" parameterType="java.lang.Long"> select sum(r_num) from `store` where c_id = #{userId,jdbcType=BIGINT}
+	</select>
+	<select id="selectStoreById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from `store` where id = #{id,jdbcType=BIGINT}
+	</select>
+	<select id="page" parameterType="com.ognice.controller.common.PageSearchParam" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from `store` where 1=1
+		<if test="params!=null">
+			<if test="params.id !=null "> AND `id` = #{params.id}
+			</if>
+			<if test="params.c_id !=null "> AND `c_id` = #{params.c_id}
+			</if>
+			<if test="params.r_date !=null "> AND `r_date` = #{params.r_date}
+			</if>
+			<if test="params.r_state !=null "> AND `r_state` = #{params.r_state}
+			</if>
+			<if test="params.r_id !=null "> AND `r_id` = #{params.r_id}
+			</if>
+			<if test="params.r_unit !=null and params.r_unit!=''"> AND `r_unit` like concat('%',#{params.r_unit},'%')
+			</if>
+			<if test="params.r_name !=null and params.r_name!=''"> AND `r_name` like concat('%',#{params.r_name},'%')
+			</if>
+			<if test="params.r_comp !=null and params.r_comp!=''"> AND `r_comp` like concat('%',#{params.r_comp},'%')
+			</if>
+			<if test="params.r_num !=null "> AND `r_num` = #{params.r_num}
+			</if>
+			<if test="params.r_repertory !=null and params.r_repertory!=''"> AND `r_repertory` like concat('%',#{params.r_repertory},'%')
+			</if>
+			<if test="params.r_operate !=null and params.r_operate!=''"> AND `r_operate` like concat('%',#{params.r_operate},'%')
+			</if>
+			<if test="params.r_minnum !=null "> AND `r_minnum` = #{params.r_minnum}
+			</if>
+			<if test="params.r_maxnum !=null "> AND `r_maxnum` = #{params.r_maxnum}
+			</if>
+			<if test="params.remark !=null and params.remark!=''"> AND `remark` like concat('%',#{params.remark},'%')
+			</if>
+		</if>
+		order by id desc
+		<if test="page!=null"> limit #{page},#{pagesize}
+		</if>
+	</select>
+	<delete id="delete" parameterType="java.lang.Long"> delete from `store` where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.ognice.domain.Store"> insert into `store` ( `id` , `c_id` , `r_date` , `r_state` , `r_id` , `r_unit` , `r_name` , `r_comp` , `r_num` , `r_repertory` , `r_operate` , `r_minnum` , `r_maxnum` , `remark` ) values ( #{id,jdbcType=INTEGER} , #{c_id,jdbcType=INTEGER} , #{r_date,jdbcType=TIMESTAMP} , #{r_state,jdbcType=INTEGER} , #{r_id,jdbcType=INTEGER} , #{r_unit,jdbcType=VARCHAR} , #{r_name,jdbcType=VARCHAR} , #{r_comp,jdbcType=VARCHAR} , #{r_num,jdbcType=INTEGER} , #{r_repertory,jdbcType=VARCHAR} , #{r_operate,jdbcType=VARCHAR} , #{r_minnum,jdbcType=INTEGER} , #{r_maxnum,jdbcType=INTEGER} , #{remark,jdbcType=VARCHAR} )
+	</insert>
+	<update id="update" parameterType="com.ognice.domain.Store">
+		update `store`
+		<set>
+			<if test="id != null"> `id`= #{id,jdbcType=INTEGER},
+			</if>
+			<if test="c_id != null"> `c_id`= #{c_id,jdbcType=INTEGER},
+			</if>
+			<if test="r_date != null"> `r_date`= #{r_date,jdbcType=TIMESTAMP},
+			</if>
+			<if test="r_state != null"> `r_state`= #{r_state,jdbcType=INTEGER},
+			</if>
+			<if test="r_id != null"> `r_id`= #{r_id,jdbcType=INTEGER},
+			</if>
+			<if test="r_unit != null"> `r_unit`= #{r_unit,jdbcType=VARCHAR},
+			</if>
+			<if test="r_name != null"> `r_name`= #{r_name,jdbcType=VARCHAR},
+			</if>
+			<if test="r_comp != null"> `r_comp`= #{r_comp,jdbcType=VARCHAR},
+			</if>
+			<if test="r_num != null"> `r_num`= #{r_num,jdbcType=INTEGER},
+			</if>
+			<if test="r_repertory != null"> `r_repertory`= #{r_repertory,jdbcType=VARCHAR},
+			</if>
+			<if test="r_operate != null"> `r_operate`= #{r_operate,jdbcType=VARCHAR},
+			</if>
+			<if test="r_minnum != null"> `r_minnum`= #{r_minnum,jdbcType=INTEGER},
+			</if>
+			<if test="r_maxnum != null"> `r_maxnum`= #{r_maxnum,jdbcType=INTEGER},
+			</if>
+			<if test="remark != null"> `remark`= #{remark,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+</mapper>

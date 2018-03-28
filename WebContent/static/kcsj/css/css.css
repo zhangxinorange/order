@@ -1,0 +1,244 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {
+	color: #333333;
+	background: #fff;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin: 0;
+	padding: 0
+}
+body{ max-width:719px; margin:0 auto;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	display: block
+}
+
+audio,canvas,video {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1
+}
+
+body,button,input,select,textarea {
+	font: 0.96rem/1.5rem "Microsoft Yahei", Helvetica, Tahoma, sans-serif
+}
+
+input,select,textarea {
+	font-size: 100%;
+	outline: none
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+th {
+	text-align: inherit
+}
+
+fieldset,img {
+	border: 0
+}
+
+iframe {
+	display: block
+}
+
+abbr,acronym {
+	border: 0;
+	font-variant: normal
+}
+
+del {
+	text-decoration: line-through
+}
+
+address,caption,cite,code,dfn,em,th,var,i {
+	font-style: normal;
+	font-weight: 500
+}
+
+ol,ul {
+	list-style: none
+}
+
+caption,th {
+	text-align: left
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	font-weight: 500
+}
+
+q:before,q:after {
+	content: ''
+}
+
+sub,sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline
+}
+
+sup {
+	top: -0.5em
+}
+
+sub {
+	bottom: -0.25em
+}
+
+a {
+	color: #606977;
+	text-decoration: none
+}
+
+a:hover {
+	color: #3857bb;
+	text-decoration: none
+}
+
+a.redlink:link,a.redlink:visited {
+	color: #545454
+}
+
+a.blacklink:link,a.blacklink:visited {
+	color: #545454
+}
+
+a.redlink:hover,a.blacklink:hover {
+	color: #d60000;
+	text-decoration: underline
+}
+input[type="button"], input[type="submit"], input[type="reset"] {
+-webkit-appearance: none;
+}
+
+.syt{ 
+	width:100%; 
+	height:20rem;
+  	background: -webkit-linear-gradient(left top, #2eab9e , #52e894); /* Safari 5.1 - 6.0 */
+  	background: -o-linear-gradient(bottom right, #2eab9e , #52e894); /* Opera 11.1 - 12.0 */
+  	background: -moz-linear-gradient(bottom right, #2eab9e , #52e894); /* Firefox 3.6 - 15 */
+  	background: linear-gradient(to bottom right, #2eab9e , #52e894); /* 标准的语法 */
+	overflow:hidden;
+}
+
+textarea { -webkit-appearance: none;} 
+.cir{ width:180px; margin:0 auto; color:#fff; margin-top:5rem; margin-bottom:30px; overflow:hidden}
+.top{ width:100%; padding-top:10px;}
+.top1{ width:12%; float:left; text-align:center; padding-top:0.2rem}
+.top2{ width:86%; float:left;}
+.top1 img{ width:1.5rem;}
+.syssk{ width:76%; float:left; border:1px solid #b5fffa; border-right:none; height:30px; background:none; color:#FFF; -webkit-appearance: none; border-radius: 0; padding-left:2% }
+.sy_ssbut{ width:20%; float:left;  border:none; background:url(../images/fangdajing.png) no-repeat center right 5px; height:32px; background-size:1.6rem; border:1px solid #b5fffa; border-left:none; cursor:pointer; -webkit-appearance: none; border-radius: 0; }
+.zhuangtai{ width:100%; background:#27a789; height:3rem;bottom:0px;}
+.zhuangtai ul{ width:98%; margin:0 auto; padding-top:0.3rem;}
+.zhuangtai li{ width:49.8%; float:left; color:#FFF; line-height:1.1rem; font-size:0.9rem; text-align:center; border-right:1px solid #45d298;}
+.zhuangtai li a{ color:#FFF; }
+.zhuangtai li a span{ font-size:1.1rem}
+.sy_biao{ width:100%; margin-top:2.5rem; overflow:hidden}
+.sy_biao a{ color:#545454}
+.sy_biao_li1{ width:33%; float:left; line-height:1.1rem; text-align:center; font-size:1rem; }
+.sy_biao_li1 img{ width:4.2rem;margin-top:10px}
+.sy_biao_li2{ width:34%; float:left; line-height:1.1rem; text-align:center; font-size:1rem}
+.sy_biao_li2 img{ width:4.8rem; }
+/*以上首页*/
+.ftop{ 
+	width:100%; overflow:hidden;
+   background: -webkit-linear-gradient(left,#49d897 , #3bc29a); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right,#49d897 , #3bc29a); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#49d897 , #3bc29a); /* Firefox 3.6 - 15 */
+    background: linear-gradient(right,#49d897 , #3bc29a); /* 标准的语法（必须放在最后） */
+	height:3rem;
+	position:fixed;
+	top:0;
+	line-height:2.8rem; 
+	max-width:719px; margin:0 auto;
+
+
+}
+.back{ float:left; width:15%; padding-top:0.8rem}
+.back img{ width:1.3rem; padding-left:0.5rem}
+.f_tit{ width:70%; float:left; text-align:center; font-size:1.15rem; color:#FFF;}
+.bianji{ float:left; width:15%; text-align:right; font-size:1rem; color:#FFF;}
+.bianji img{width:1.3rem; padding-right:0.5rem; padding-top:0.8rem}
+.bc_but{ background:none; border:none; color:#FFF; height:3rem; margin-right:0.5rem; cursor:pointer;  }
+.bianji a{ color:#FFF; padding-right:0.5rem}
+.xiugai:link,.xiugai:hover,.xiugai:active,.xiugai:visited{ color:#F90;} 
+.kuang{ margin-top:3rem; margin-bottom:3rem}
+.tiao1{ width:100%; height:2.5rem; border-bottom:1px solid #dddddd; line-height:2.5rem}
+.tiao_l{ float:left; text-align:left; color:#2abd7a; width:25%}
+.tiao_r{ float:right; text-align:right;  width:75%}
+.tiao_l span{ padding-left:0.5rem}
+.tiao_r span{ padding-right:0.5rem}
+.hui{ width:100%; height:10px; background:#efefef}
+
+#parent{
+    background:url(../images/jt_d.png) right center no-repeat;
+	background-size:1.5rem; 
+    width: 100%;
+    height: 2.5rem;
+    overflow: hidden;
+    border: none;
+
+}
+
+#parent select{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    background:transparent;
+    border:none;
+    padding-left:0.2rem;
+    width: 100%;
+    height:100%;    
+	color:#2abd7a;
+	
+}
+
+.srk{  height:2.5rem; line-height:1.5rem; border:none; text-align:right; width:80%;}
+.shijian{  height:2.5rem; line-height:1.5rem; border:none; background:none; width:80%;}
+.zengshan{ width:100%; margin-top:1.5rem; margin-bottom:1.5rem; overflow:hidden} 
+.zengshan li{ width:50%; float:left; text-align:center;}
+.zengshan li img{ width:30%;}
+
+.ss{ width:100%; background:#f2f2f2; height:2.5rem; position:fixed; padding-top:10px;}
+.ssk{ width:77%; float:left; padding-left:2%;}
+.ssbut{ width:20%; float:left; border:none;}
+.kc_list ul{ width:100%; margin:0 auto; border-bottom:1px solid #dddddd; overflow:hidden; padding-top:10px; padding-bottom:10px;}
+.kc_list_li1{ width:68%; float:left; padding-left:2%}
+.kc_list_li2{ width:15%; float:left; text-align:center; font-size:0.8rem; line-height:1rem}
+.zi1{}
+.zi2{ font-size:0.8rem; color:#3dc59a; line-height:1.2em}
+.zi3{ font-size:0.8rem; color:#3dc59a;line-height:1.2rem}
+.zi4{ font-size:0.8rem; color:#e32323;line-height:1.2rem}
+.zi5{ font-size:0.8rem; color:#888888;line-height:1.2rem}
+.denglu_wk{ width:100%; background: url(../images/bg.jpg) center no-repeat; position: absolute; min-height: 100%; background-size: cover;}
+.denglu{ width:90%; margin:0 auto; } 
+.denglu_tit{ font-size:1.5rem; text-align:center; padding-top:8rem; padding-bottom:1.5rem; color:#FFF;}
+.dl_xx{ margin-bottom:10px;}
+.dl_txt{ width:88%; height:2.5rem; border:1px solid #fff; background:none; color:#FFF; background:url(../images/user.png) no-repeat 0.5rem center; background-size: 1.4rem; padding-left:2.5rem}
+.dl_txt2{ width:88%; height:2.5rem; border:1px solid #fff; background:none;color:#FFF; background:url(../images/pass.png) no-repeat 0.5rem center; background-size: 1.4rem;padding-left:2.5rem}
+.dl_but{ width:100%; height:2.6rem; border:1px solid #23b486; color:#FFF; font-size:1.2rem; 
+   background: -webkit-linear-gradient(left,#49d897 , #3bc29a); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right,#49d897 , #3bc29a); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#49d897 , #3bc29a); /* Firefox 3.6 - 15 */
+    background: linear-gradient(right,#49d897 , #3bc29a); /* 标准的语法（必须放在最后） */
+}
+
+.down{width:100%;  position:fixed; bottom:0px; z-index:3; background:#f8f8f8; border-top:1px solid #dddddd; height:3rem }
+.down ul{ margin-left:0px; }
+.do1{float:left; width:20%;text-align:center; color:#FFFFFF; vertical-align:middle; line-height:1rem }
+.do1 a:link,.do1 a:visited,.do1 a:hover,.do1 a:active{color:#545454; font-size:0.7rem; }
+.down ul li img{border:none; width:1.5rem; padding-top:3px;}
+
+

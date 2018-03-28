@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ognice.dao.PreuserMapper">
+	<resultMap id="BaseResultMap" type="com.ognice.domain.Preuser">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="c_name" property="c_name" jdbcType="VARCHAR" />
+		<result column="c_area" property="c_area" jdbcType="VARCHAR" />
+		<result column="c_ind" property="c_ind" jdbcType="VARCHAR" />
+		<result column="c_user" property="c_user" jdbcType="VARCHAR" />
+		<result column="c_passwd" property="c_passwd" jdbcType="VARCHAR" />
+		<result column="c_mail" property="c_mail" jdbcType="VARCHAR" />
+		<result column="c_tel" property="c_tel" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List"> `id` , `c_name` , `c_area` , `c_ind` , `c_user` , `c_passwd` , `c_mail` , `c_tel`
+	</sql>
+	<select id="login" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from preuser where c_user = #{0} AND c_passwd = #{1}
+	</select>
+	<select id="selectPreuserById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from `preuser` where id = #{id,jdbcType=BIGINT}
+	</select>
+	<select id="page" parameterType="com.ognice.controller.common.PageSearchParam" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from `preuser` where 1=1
+		<if test="params!=null">
+			<if test="params.id !=null "> AND `id` = #{params.id}
+			</if>
+			<if test="params.c_name !=null and params.c_name!=''"> AND `c_name` like concat('%',#{params.c_name},'%')
+			</if>
+			<if test="params.c_area !=null and params.c_area!=''"> AND `c_area` like concat('%',#{params.c_area},'%')
+			</if>
+			<if test="params.c_ind !=null and params.c_ind!=''"> AND `c_ind` like concat('%',#{params.c_ind},'%')
+			</if>
+			<if test="params.c_user !=null and params.c_user!=''"> AND `c_user` like concat('%',#{params.c_user},'%')
+			</if>
+			<if test="params.c_passwd !=null and params.c_passwd!=''"> AND `c_passwd` like concat('%',#{params.c_passwd},'%')
+			</if>
+			<if test="params.c_mail !=null and params.c_mail!=''"> AND `c_mail` like concat('%',#{params.c_mail},'%')
+			</if>
+			<if test="params.c_tel !=null and params.c_tel!=''"> AND `c_tel` like concat('%',#{params.c_tel},'%')
+			</if>
+		</if>
+		order by id desc
+		<if test="page!=null"> limit #{page},#{pagesize}
+		</if>
+	</select>
+	<delete id="delete" parameterType="java.lang.Long"> delete from `preuser` where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.ognice.domain.Preuser"> insert into `preuser` ( `id` , `c_name` , `c_area` , `c_ind` , `c_user` , `c_passwd` , `c_mail` , `c_tel` ) values ( #{id,jdbcType=INTEGER} , #{c_name,jdbcType=VARCHAR} , #{c_area,jdbcType=VARCHAR} , #{c_ind,jdbcType=VARCHAR} , #{c_user,jdbcType=VARCHAR} , #{c_passwd,jdbcType=VARCHAR} , #{c_mail,jdbcType=VARCHAR} , #{c_tel,jdbcType=VARCHAR} )
+	</insert>
+	<update id="update" parameterType="com.ognice.domain.Preuser">
+		update `preuser`
+		<set>
+			<if test="id != null"> `id`= #{id,jdbcType=INTEGER},
+			</if>
+			<if test="c_name != null"> `c_name`= #{c_name,jdbcType=VARCHAR},
+			</if>
+			<if test="c_area != null"> `c_area`= #{c_area,jdbcType=VARCHAR},
+			</if>
+			<if test="c_ind != null"> `c_ind`= #{c_ind,jdbcType=VARCHAR},
+			</if>
+			<if test="c_user != null"> `c_user`= #{c_user,jdbcType=VARCHAR},
+			</if>
+			<if test="c_passwd != null"> `c_passwd`= #{c_passwd,jdbcType=VARCHAR},
+			</if>
+			<if test="c_mail != null"> `c_mail`= #{c_mail,jdbcType=VARCHAR},
+			</if>
+			<if test="c_tel != null"> `c_tel`= #{c_tel,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+</mapper>
