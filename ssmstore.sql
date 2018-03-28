@@ -32,11 +32,11 @@ CREATE TABLE `ordert` (
   `ordertotal` double DEFAULT NULL COMMENT '订单总额',
   `orderDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '录入时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ordert` */
 
-insert  into `ordert`(`id`,`orderName`,`customName`,`orderGood`,`ordernum`,`remark`,`uId`,`ordertotal`,`orderDate`) values (7,'vvvvvvv','444','556',666,'6777',1,1222,'2018-03-27 10:21:14'),(8,'vv','vv','vv',11,'333',1,22,'2018-03-27 10:29:00'),(9,'dddeee','eee','333',444,'dddddddddddeee',1,555,'2018-03-27 10:39:15'),(13,'rrrrr','rr','tt',44,'',1,NULL,'2018-03-27 13:24:47'),(14,'真正的订单','北京大学','服务器',50,'测试',1,80000,'2018-03-27 15:54:17');
+insert  into `ordert`(`id`,`orderName`,`customName`,`orderGood`,`ordernum`,`remark`,`uId`,`ordertotal`,`orderDate`) values (7,'vvvvvvv','444','556',666,'6777',1,1222,'2018-03-27 10:21:14'),(8,'vv','vv','vv',11,'333',1,22,'2018-03-27 10:29:00'),(9,'dddeee','eee','333',444,'dddddddddddeee',1,555,'2018-03-27 10:39:15'),(13,'rrrrr','rr','tt',44,'',1,NULL,'2018-03-27 13:24:47'),(14,'真正的订单','北京大学','服务器',50,'测试',1,80000,'2018-03-27 15:54:17'),(15,'王五的订单','北医三院','化学药品',3000,'真贵啊',3,5000,'2018-03-28 15:21:58');
 
 /*Table structure for table `person` */
 
@@ -52,12 +52,14 @@ CREATE TABLE `person` (
   `company` varchar(500) DEFAULT NULL COMMENT '公司名称',
   `post` varchar(100) DEFAULT NULL COMMENT '所属岗位',
   `username` varchar(100) DEFAULT NULL COMMENT '登录名',
+  `status` int(2) DEFAULT '0' COMMENT '用户状态',
+  `createDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '录入时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Data for the table `person` */
 
-insert  into `person`(`id`,`personName`,`password`,`role`,`sex`,`phone`,`company`,`post`,`username`) values (1,'张三','1',1,NULL,NULL,NULL,NULL,'admin'),(2,'李四','123',0,1,NULL,NULL,NULL,'super');
+insert  into `person`(`id`,`personName`,`password`,`role`,`sex`,`phone`,`company`,`post`,`username`,`status`,`createDate`) values (1,'张三','123',1,0,NULL,NULL,NULL,'admin',0,'2018-03-28 13:11:26'),(2,'李四','123',0,1,NULL,NULL,NULL,'super',0,'2018-03-28 13:11:26'),(3,'王五','123',1,2,'13811055555','北京医院','院长 ','wangwu',0,'2018-03-28 15:17:54'),(4,'1','111',0,0,'11111','2','3','admin1',0,'2018-03-28 15:53:59'),(5,'dd','3333',0,0,'33','33','33','333',0,'2018-03-28 15:55:07'),(7,'ddd','1',0,0,'ddd','dd','dd','dd',0,'2018-03-28 16:02:11');
 
 /*Table structure for table `preuser` */
 
