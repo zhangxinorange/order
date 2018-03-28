@@ -1,6 +1,5 @@
 package com.ognice.interceptor;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,13 +8,9 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ognice.domain.Person;
-import com.ognice.domain.Preuser;
-import com.ognice.service.IMenuService;
 
 public class LoginInterceptor implements HandlerInterceptor {
     public static final Logger log = Logger.getLogger(LoginInterceptor.class);
-    @Resource
-    private IMenuService menuservice;
 
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object obj, Exception err) throws Exception {
     }

@@ -70,7 +70,7 @@ function searchlis(e){
         <li class="clickAdd"><span><img src="${ctx }/static/images/t01.png" /></span>添加</li> 
         <li class="click"><span><img src="${ctx }/static/images/t02.png" /></span>修改</li>
         <li class="delClick"><span><img src="${ctx }/static/images/t03.png" /></span>删除</li>
-        <li class="tongji"><span><img src="${ctx }/static/images/t04.png" /></span>统计</li>
+        <%-- <li class="tongji"><span><img src="${ctx }/static/images/t04.png" /></span>统计</li> --%>
         </ul>
         
         

@@ -3,7 +3,6 @@
  */
 package com.ognice.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -18,21 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ognice.controller.common.PageResult;
-import com.ognice.controller.common.PageSearchParam;
 import com.ognice.domain.Order;
 import com.ognice.domain.Person;
-import com.ognice.domain.Preuser;
 import com.ognice.domain.Result;
-import com.ognice.domain.Store;
-import com.ognice.service.IMenuService;
 import com.ognice.service.IPersonService;
-import com.ognice.service.IPreuserService;
-import com.ognice.service.IStoreService;
-import com.ognice.service.IUserService;
 import com.ognice.service.iOrderService;
 import com.ognice.util.ResultUtil;
-import com.sun.xml.internal.ws.util.StringUtils;
 
 /****
  * 用户登录
@@ -41,17 +31,6 @@ import com.sun.xml.internal.ws.util.StringUtils;
  */
 @Controller
 public class IndexController {
-    @Resource
-    private IUserService userservice;
-
-    @Resource
-    private IPreuserService preuserservice;
-
-    @Resource
-    private IStoreService storeService;
-
-    @Resource
-    private IMenuService menuservice;
     
     
     @Autowired
@@ -69,18 +48,7 @@ public class IndexController {
         return "pre/resetPsw";
     }
 
-    @RequestMapping(value = "/index/repsw", method = RequestMethod.POST)
-    public String repsw(HttpServletRequest request, ModelMap model, String psw1, String psw2) {
-        Preuser user = (Preuser) request.getSession().getAttribute("indexUser");
-        if (psw1.equals(psw2)) {
-            user.setC_passwd(psw1);
-            preuserservice.update(user);
-        } else {
-            model.addAttribute("msg", "两次密码不一致");
-        }
-        request.getSession().removeAttribute("indexUser");
-        return "redirect:/";
-    }
+    
 
     /**
     *
@@ -259,7 +227,21 @@ public class IndexController {
    /* @RequestMapping(value = "/index")
     public String index(HttpServletRequest request, HttpServletResponse response) {
         return "pre/index";
-    }*/
+    }
+    @RequestMapping(value = "/index/repsw", method = RequestMethod.POST)
+    public String repsw(HttpServletRequest request, ModelMap model, String psw1, String psw2) {
+        Preuser user = (Preuser) request.getSession().getAttribute("indexUser");
+        if (psw1.equals(psw2)) {
+            user.setC_passwd(psw1);
+            preuserservice.update(user);
+        } else {
+            model.addAttribute("msg", "两次密码不一致");
+        }
+        request.getSession().removeAttribute("indexUser");
+        return "redirect:/";
+    }
+    *
+    */
 
     /**
     *
