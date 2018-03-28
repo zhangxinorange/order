@@ -55,7 +55,6 @@ public class PersonServiceImpl implements IPersonService {
 		return 0;
 	}
 
-	@Override
 	public List<Person> queryAllPersonList() {
 		// TODO Auto-generated method stub
 		return null;
@@ -77,6 +76,12 @@ public class PersonServiceImpl implements IPersonService {
 			e.printStackTrace();
 		}
 		return person;
+	}
+
+	@Override
+	public List<Person> queryAllPersonList(String personName, String userName, Integer pageIndex) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
