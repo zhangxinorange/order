@@ -3,6 +3,7 @@ author 张鑫
 时间:2018年3月28日
 
 功能列表：
+	
 		管理员：
 		一、	登录
 		二、	查看订单
@@ -45,17 +46,18 @@ author 张鑫
 		五、	重置密码
 
 说明：
-各项环境说明：
-JDK：1.7；
-mybaits：3.2.6
-tomcat:7（请注意修改tomcat的编码格式，不然可能会出现乱码情况）
-	修改编码方式:打开tomcat下的conf文件夹，打开server.xml文件，找到文件中以<Connector port="8080"	
 
-开的的部分，再次标签中新增URIEncoding="UTF-8",重启tomcat即可。
-mysql：5.1以及以上版本
-spring:4.0
-图表：echart
-
-默认管理员登录名:super
-密码:1
+	各项环境说明：
+	JDK：1.7；
+	mybaits：3.2.6
+	tomcat:7（请注意修改tomcat的编码格式，不然可能会出现乱码情况）
+		修改编码方式:打开tomcat下的conf文件夹，打开server.xml文件，找到文件中以<Connector port="8080"	
+	
+	开的的部分，再次标签中新增URIEncoding="UTF-8",重启tomcat即可。
+	mysql：5.1以及以上版本
+	spring:4.0
+	图表：echart
+	
+	默认管理员登录名:super
+	密码:1
 
