@@ -12,6 +12,7 @@
     <result column="ordertotal" property="ordertotal" jdbcType="DOUBLE"/>
      <result column="orderDate" property="orderDate" jdbcType="TIMESTAMP" />
      <result column="personname" property="userName" jdbcType="VARCHAR" />
+      <result column="oStatus" property="oStatus" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, orderName, customName, orderGood, ordernum, remark,uId,ordertotal,orderDate
@@ -46,7 +47,35 @@
     select 
    count(*)
     from ordert t left join person p on p.id=t.uId 
-    where 1=1 
+    where t.oStatus=0
+     <if test="id!=null and id!=''">
+   and  t.uId = #{id,jdbcType=BIGINT} 
+    </if>
+    <if test="ordername!=null and ordername!=''">
+    	and (lower(t.ordername) like
+				CONCAT('%',#{ordername},'%')  or 
+			upper(t.ordername) like
+				CONCAT('%',#{ordername},'%')	
+				)
+    </if>
+    
+    <if test="userName!=null and userName!=''">
+    	and (lower(p.personname) like
+				CONCAT('%',#{userName},'%')  
+				
+			or 
+			upper(p.personname) like
+				CONCAT('%',#{userName},'%')		
+				)
+    </if>
+  </select>
+  
+  
+  <select id="countdAllOrderByUserIdList" resultType="integer" parameterType="com.ognice.domain.Order">
+    select 
+   count(*)
+    from ordert t left join person p on p.id=t.uId 
+    where t.oStatus=1
      <if test="id!=null and id!=''">
    and  t.uId = #{id,jdbcType=BIGINT} 
     </if>
@@ -73,7 +102,38 @@
     select 
    <include refid="Base_Column_List_t" />	
     from ordert  t left join person p on p.id=t.uId
-    where 1=1 and 1=1
+    where t.oStatus=0 
+    <if test="data.id!=null and data.id!=''">
+   	and  t.uId = #{data.id,jdbcType=BIGINT} 
+    </if>
+    <if test="data.ordername!=null and data.ordername!=''">
+    	and (lower(t.ordername) like
+				CONCAT('%',#{data.ordername},'%')  or 
+			upper(t.ordername) like
+				CONCAT('%',#{data.ordername},'%')	
+				)
+    </if>
+    
+    <if test="data.userName!=null and data.userName!='' ">
+    	and (lower(p.personname) like
+				CONCAT('%',#{data.userName},'%')  
+				
+			or 
+			upper(p.personname) like
+				CONCAT('%',#{data.userName},'%')		
+				)
+    </if>
+    
+    order by orderDate desc	
+    limit #{start},#{end} 
+  </select>
+  
+  
+  <select id="querydAllOrderByUserIdListPage"  resultMap="BaseResultMap" >
+    select 
+   <include refid="Base_Column_List_t" />	
+    from ordert  t left join person p on p.id=t.uId
+    where t.oStatus=1 
     <if test="data.id!=null and data.id!=''">
    	and  t.uId = #{data.id,jdbcType=BIGINT} 
     </if>
@@ -178,6 +238,9 @@
       </if>
       <if test="ordertotal != null" >
         ordertotal = #{ordertotal,jdbcType=VARCHAR},
+      </if>
+       <if test="oStatus != null" >
+        oStatus = #{oStatus,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}

@@ -31,6 +31,7 @@ function changeLi()
 {
 	$("#wode").attr("css","active");
 	$("#addLi").removeClass("active");
+	$("#addls").removeClass("active");
 }
 </script>
 
@@ -49,6 +50,7 @@ function changeLi()
     	<ul class="menuson">
         <li id="wode" class="active"><cite></cite><a href="${ctx }/order/orderList" target="rightFrame">我的订单</a><i></i></li>
         <li id="addLi"><cite></cite><a href="${ctx }/order/addOrder" target="rightFrame">添加订单</a><i></i></li>
+        <li id="addls"><cite></cite><a href="${ctx }/order/dOrderList" target="rightFrame">订单回收站</a><i></i></li>
         <%-- <li><cite></cite><a href="imgtable.html" target="rightFrame">删除订单</a><i></i></li>
         <li><cite></cite><a href="form.html" target="rightFrame">恢复订单</a><i></i></li> --%>
         </ul>    

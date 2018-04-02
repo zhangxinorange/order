@@ -222,4 +222,33 @@ public class OrderServiceImpl implements iOrderService {
 		return map;
 	}
 
+	@Override
+	public Map querydAllOrderByUserIdListForPage(Long id,Integer pageIndex, Integer pageSize) {
+		Order order=new Order(id,null);
+		Integer total=orderMapper.countdAllOrderByUserIdList(order);
+		if (pageSize==null) {
+			pageSize=5;
+		}
+		Integer pageCount=(int)Math.ceil(1.0*total/pageSize);
+		if (pageIndex==null) {
+			pageIndex=1;
+		}
+		if (pageIndex>pageCount&&pageCount!=0) {
+			pageIndex=pageCount;
+		}
+		Integer start=pageSize*(pageIndex-1);
+		Integer end=pageSize;
+		Map map=new HashMap<>();
+		map.put("data", order);
+		map.put("start", start);
+		map.put("end", end);
+		List<Order> oList=orderMapper.querydAllOrderByUserIdListPage(map);
+		Map result=new HashMap<>();
+		result.put("data", oList);
+		result.put("total", total);
+		result.put("pageIndex", pageIndex);
+		result.put("pageCount", pageCount);
+		return result;	
+	}
+
 }

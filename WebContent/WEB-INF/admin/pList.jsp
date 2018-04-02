@@ -111,10 +111,10 @@ function searchlis(e){
 	        <td>
 	        	<c:choose>
 	        		<c:when test="${person.role eq 0}">
-	        			用户
+	        			管理员
 	        		</c:when>
 	        		<c:otherwise>
-	        			管理员
+	        			用户
 	        		</c:otherwise>
 	        	</c:choose>
 	        </td>

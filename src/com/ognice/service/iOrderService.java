@@ -21,6 +21,7 @@ public interface iOrderService {
     List<Order> queryAllOrderByUserIdList(Long id,String orderName);
     
     Map queryAllOrderByUserIdListForPage(Long id,String orderName,Integer pageIndex,Integer pageSize);
+    Map querydAllOrderByUserIdListForPage(Long id,Integer pageIndex,Integer pageSize);
     
     Map queryAllOrderListForPage(String orderName,String userName,Integer pageIndex,Integer pageSize);
     

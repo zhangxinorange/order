@@ -24,4 +24,8 @@ public interface OrderMapper {
     
     
     int countAllOrderByUserIdList(Order order);
+    
+    int countdAllOrderByUserIdList(Order order);
+    
+    List<Order> querydAllOrderByUserIdListPage(Map data);
 }

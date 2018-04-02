@@ -29,9 +29,9 @@
     <li><label>登录名称</label><input name="username" id="username" type="text" value="${person.username }" class="dfinput"  onblur="javascript:checkUserName();"/></li>
     <li><label>登录密码</label><input name="password" id="password" value="${person.password }" type="password" class="dfinput" /></li>
     <li><label>用户角色</label>
-    	<cite><input name="role" type="radio" value="0" <c:if test="${person.role eq 0 }">
+    	<cite><input name="role" type="radio" value="1" <c:if test="${person.role eq 1 }">
     		 checked="checked" </c:if>/>普通用户&nbsp;
-    	<input name="role" type="radio" <c:if test="${person.role eq 1 }">  checked="checked" </c:if> value="1" />管理员</cite>
+    	<input name="role" type="radio" <c:if test="${person.role eq 0 }">  checked="checked" </c:if> value="0" />管理员</cite>
     </li>
     <li><label>用户性别</label>
     	<cite><input name="sex" type="radio" value="0" <c:if test="${person.sex eq 0 }"> checked="checked" </c:if> />男&nbsp;&nbsp;

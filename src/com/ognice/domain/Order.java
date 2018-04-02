@@ -32,6 +32,8 @@ public class Order implements java.io.Serializable{
     private Date orderDate;
     
     private String userName;
+    
+    private Integer oStatus;
 
     public Long getId() {
         return id;
@@ -127,6 +129,14 @@ public class Order implements java.io.Serializable{
 		super();
 		this.ordername = ordername;
 		this.userName = userName;
+	}
+
+	public Integer getoStatus() {
+		return oStatus;
+	}
+
+	public void setoStatus(Integer oStatus) {
+		this.oStatus = oStatus;
 	}
 
 	

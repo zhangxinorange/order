@@ -1,6 +1,5 @@
 package com.ognice.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,9 +42,17 @@ public class OrderController {
 
 	
 	@RequestMapping(value = "/deleteOrder", method = RequestMethod.GET)
-	public String deleteOrder(HttpServletRequest request, Model model,String oId) {
+	public String deleteOrder(HttpServletRequest request, Model model,String oId,Integer type) {
+		int num=0;
+		if (type==null) {
+			Order order=orderService.selectByPrimaryKey(Long.valueOf(oId));
+			order.setoStatus(1);
+			 num =orderService.updateByPrimaryKeySelective(order);
+		}
+		else {
+			 num =orderService.deleteByPrimaryKey(Long.valueOf(oId));
+		}
 		
-		int num =orderService.deleteByPrimaryKey(Long.valueOf(oId));
 		if (num == 1) {
 			Result result=new Result(0, "删除订单成功", "/order/orderList");
 			model.addAttribute("result", result);
@@ -116,6 +123,22 @@ public class OrderController {
 			return "user/error";
 		}
 	}
+	
+	@RequestMapping(value = "/reOrder", method = RequestMethod.GET)
+	public String reOrder(HttpServletRequest request, Model model, Long oId) {
+		Order order=orderService.selectByPrimaryKey(oId);
+		order.setoStatus(0);
+		int num = orderService.updateByPrimaryKeySelective(order);
+		if (num == 1) {
+			Result result=new Result(0, "恢复订单成功", "/order/dOrderList");
+			model.addAttribute("result", result);
+			return "user/success";
+		} else {
+			Result result=new Result(0, "恢复订单失败", "/order/dOrderList");
+			model.addAttribute("result", result);
+			return "user/error";
+		}
+	}
 	/***
 	 * 进入订单列表
 	 * @param request
@@ -147,5 +170,30 @@ public class OrderController {
 			model.addAttribute("person", person);
 			return "admin/orderList";
 		}
+	}
+	
+	/***
+	 * 进入删除订单列表
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/dOrderList")
+	public  String dOrderList(HttpServletRequest request, Model model,Integer pageIndex)
+	{
+		Person person = (Person) request.getSession().getAttribute("indexUser");
+		//List<Order> oList=orderService.queryAllOrderByUserIdList(person.getId(),orderName);
+		if (pageIndex==null||pageIndex<1) {
+			pageIndex=1;
+		}
+		Integer pageSize=(Integer)request.getServletContext().getAttribute("oPage");
+		if (pageSize==null) {
+			pageSize=PageConstants.PAGESIZE;
+		}
+			
+			Map map=orderService.querydAllOrderByUserIdListForPage(person.getId(),pageIndex, pageSize);
+			model.addAttribute("data", map);
+			model.addAttribute("person", person);
+			return "user/delOrderList";
 	}
 }
