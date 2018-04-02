@@ -31,12 +31,13 @@ CREATE TABLE `ordert` (
   `uId` int(100) DEFAULT NULL COMMENT '创建者',
   `ordertotal` double DEFAULT NULL COMMENT '订单总额',
   `orderDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '录入时间',
+  `oStatus` int(2) DEFAULT '0' COMMENT '订单状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ordert` */
 
-insert  into `ordert`(`id`,`orderName`,`customName`,`orderGood`,`ordernum`,`remark`,`uId`,`ordertotal`,`orderDate`) values (7,'vvvvvvv','444','556',666,'6777',1,1222,'2018-03-27 10:21:14'),(8,'vv','vv','vv',11,'333',1,22,'2018-03-27 10:29:00'),(9,'dddeee','eee','333',444,'dddddddddddeee',1,555,'2018-03-27 10:39:15'),(13,'rrrrr','rr','tt',44,'',1,NULL,'2018-03-27 13:24:47'),(14,'真正的订单','北京大学','服务器',50,'测试',1,80000,'2018-03-27 15:54:17'),(15,'王五的订单','北医三院','化学药品',3000,'真贵啊',3,5000,'2018-03-28 15:21:58');
+insert  into `ordert`(`id`,`orderName`,`customName`,`orderGood`,`ordernum`,`remark`,`uId`,`ordertotal`,`orderDate`,`oStatus`) values (7,'vvvvvvv','444','556',666,'6777',1,1222,'2018-03-27 10:21:14',0),(9,'dddeee','eee','333',444,'dddddddddddeee',1,555,'2018-03-27 10:39:15',0),(13,'rrrrr','rr','tt',44,'',1,NULL,'2018-03-27 13:24:47',0),(14,'真正的订单','北京大学','服务器',50,'测试',1,80000,'2018-03-27 15:54:17',0),(15,'王五的订单','北医三院','化学药品',3000,'真贵啊',3,5000,'2018-03-28 15:21:58',1),(16,'你好北京','北京广播1','螺丝',100,'测试',3,9000,'2018-03-28 18:10:56',0),(18,'2','34','5',6,'t',1,7,'2018-04-02 10:50:34',1),(20,'测试订单2','北京大学','橡皮',300,'',12,50000,'2018-04-02 11:02:04',0);
 
 /*Table structure for table `person` */
 
@@ -55,11 +56,11 @@ CREATE TABLE `person` (
   `status` int(2) DEFAULT '0' COMMENT '用户状态',
   `createDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '录入时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `person` */
 
-insert  into `person`(`id`,`personName`,`password`,`role`,`sex`,`phone`,`company`,`post`,`username`,`status`,`createDate`) values (1,'张三','123',1,0,NULL,NULL,NULL,'admin',0,'2018-03-28 13:11:26'),(2,'李四','123',0,1,NULL,NULL,NULL,'super',0,'2018-03-28 13:11:26'),(3,'王五','123',1,2,'13811055555','北京医院','院长 ','wangwu',0,'2018-03-28 15:17:54'),(4,'1','111',0,0,'11111','2','3','admin1',0,'2018-03-28 15:53:59'),(5,'dd','3333',0,0,'33','33','33','333',0,'2018-03-28 15:55:07'),(7,'ddd','1',0,0,'ddd','dd','dd','dd',0,'2018-03-28 16:02:11');
+insert  into `person`(`id`,`personName`,`password`,`role`,`sex`,`phone`,`company`,`post`,`username`,`status`,`createDate`) values (1,'张三','123',1,0,NULL,NULL,NULL,'admin',0,'2018-03-28 13:11:26'),(2,'李四','1',0,1,NULL,NULL,NULL,'super',0,'2018-03-28 13:11:26'),(3,'王五','123',1,2,'13811055555','北京医院','院长 ','wangwu',0,'2018-03-28 15:17:54'),(4,'1','111',0,0,'11111','2','3','admin1',0,'2018-03-28 15:53:59'),(5,'dd','3333',0,0,'33','33','33','333',0,'2018-03-28 15:55:07'),(7,'ddd','1',0,0,'ddd','dd','dd','dd',0,'2018-03-28 16:02:11'),(8,'ffffff','1',1,1,'333','444','555','f123',0,'2018-04-02 10:09:55'),(9,'fre','1',1,1,'q','w','e','www',0,'2018-04-02 10:13:31'),(12,'test2','1',1,0,'1','','','test2',0,'2018-04-02 11:00:41');
 
 /*Table structure for table `preuser` */
 
