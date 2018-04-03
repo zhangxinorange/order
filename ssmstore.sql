@@ -17,6 +17,39 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`ssmstore` /*!40100 DEFAULT CHARACTER SE
 
 USE `ssmstore`;
 
+/*Table structure for table `goods` */
+
+DROP TABLE IF EXISTS `goods`;
+
+CREATE TABLE `goods` (
+  `gId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `goodsName` varchar(200) DEFAULT NULL COMMENT '商品名称',
+  `status` int(2) DEFAULT '0' COMMENT '商品状态',
+  `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `goodType` bigint(20) DEFAULT NULL COMMENT '商品类型',
+  PRIMARY KEY (`gId`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+/*Data for the table `goods` */
+
+insert  into `goods`(`gId`,`goodsName`,`status`,`createDate`,`goodType`) values (1,'橡皮',0,'2018-04-03 11:13:35',9),(2,'铅笔',0,'2018-04-03 11:13:47',9),(3,'冰箱',0,'2018-04-03 11:13:54',8),(4,'电视',0,'2018-04-03 11:14:01',8),(5,'桌子',0,'2018-04-03 11:14:09',7),(6,'茶几',0,'2018-04-03 11:14:27',7),(7,'感冒药',0,'2018-04-03 11:14:34',6),(8,'哮喘药',0,'2018-04-03 11:14:49',6),(9,'面条',0,'2018-04-03 11:16:31',5),(12,'三页笔记本',0,'2018-04-03 14:12:45',11);
+
+/*Table structure for table `goodstype` */
+
+DROP TABLE IF EXISTS `goodstype`;
+
+CREATE TABLE `goodstype` (
+  `tId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `tName` varchar(100) DEFAULT NULL COMMENT '类别名称',
+  `status` int(1) DEFAULT '0' COMMENT '类型状态',
+  `createDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`tId`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+/*Data for the table `goodstype` */
+
+insert  into `goodstype`(`tId`,`tName`,`status`,`createDate`) values (5,'食品',0,'2018-04-02 18:02:09'),(6,'药品',0,'2018-04-02 18:02:12'),(7,'家具',0,'2018-04-02 18:02:15'),(8,'电器',0,'2018-04-02 18:02:18'),(9,'文具',0,'2018-04-02 18:02:36'),(10,'电脑',0,'2018-04-03 13:56:07'),(11,'笔记本',0,'2018-04-03 14:12:25');
+
 /*Table structure for table `ordert` */
 
 DROP TABLE IF EXISTS `ordert`;
@@ -33,11 +66,11 @@ CREATE TABLE `ordert` (
   `orderDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '录入时间',
   `oStatus` int(2) DEFAULT '0' COMMENT '订单状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ordert` */
 
-insert  into `ordert`(`id`,`orderName`,`customName`,`orderGood`,`ordernum`,`remark`,`uId`,`ordertotal`,`orderDate`,`oStatus`) values (7,'vvvvvvv','444','556',666,'6777',1,1222,'2018-03-27 10:21:14',0),(9,'dddeee','eee','333',444,'dddddddddddeee',1,555,'2018-03-27 10:39:15',0),(13,'rrrrr','rr','tt',44,'',1,NULL,'2018-03-27 13:24:47',0),(14,'真正的订单','北京大学','服务器',50,'测试',1,80000,'2018-03-27 15:54:17',0),(15,'王五的订单','北医三院','化学药品',3000,'真贵啊',3,5000,'2018-03-28 15:21:58',1),(16,'你好北京','北京广播1','螺丝',100,'测试',3,9000,'2018-03-28 18:10:56',0),(18,'2','34','5',6,'t',1,7,'2018-04-02 10:50:34',1),(20,'测试订单2','北京大学','橡皮',300,'',12,50000,'2018-04-02 11:02:04',0);
+insert  into `ordert`(`id`,`orderName`,`customName`,`orderGood`,`ordernum`,`remark`,`uId`,`ordertotal`,`orderDate`,`oStatus`) values (7,'vvvvvvv','444','2',666,'6777',1,1222,'2018-03-27 10:21:14',0),(9,'dddeee','eee','1',444,'dddddddddddeee',1,555,'2018-03-27 10:39:15',0),(13,'rrrrr','rr','8',44,'eee',1,22222,'2018-03-27 13:24:47',0),(14,'真正的订单','北京大学','9',50,'测试',1,80000,'2018-03-27 15:54:17',0),(15,'王五的订单','北医三院','化学药品',3000,'真贵啊',3,5000,'2018-03-28 15:21:58',1),(16,'你好北京','北京广播1','7',100,'测试',3,9000,'2018-03-28 18:10:56',0),(18,'2','34','5',6,'t',1,7,'2018-04-02 10:50:34',0),(20,'测试订单2','北京大学','6',300,'',12,50000,'2018-04-02 11:02:04',0),(21,'222','33333','5',444,'ttt',1,555,'2018-04-03 13:05:50',0),(22,'ee','eee3','4',222,'222',1,222,'2018-04-03 13:10:17',0),(23,'12','222','12',333,'rrr',1,4445,'2018-04-03 13:42:01',0);
 
 /*Table structure for table `person` */
 
