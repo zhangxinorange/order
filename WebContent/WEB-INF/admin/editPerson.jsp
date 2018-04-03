@@ -75,7 +75,7 @@
 			
 		});
 		$("#reset").click(function(){
-			parent.location.href="${ctx}/person/pList";
+			window.location.href="${ctx}/person/pList";
 		});
 	});
 	function checkUserName(){

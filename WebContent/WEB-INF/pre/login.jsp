@@ -57,7 +57,7 @@
 			<ul>
 				<li><input name="userName" id="userName" type="text" class="loginuser" value="用户名"
 					onclick="JavaScript:this.value=''" /></li>
-				<li><input name="password" id="password" type="text" class="loginpwd" value="密码"
+				<li><input name="password" id="password" type="password" class="loginpwd" value="密码"
 					onclick="JavaScript:this.value=''" /></li>
 				<li><input id="loginBtn" type="button" class="loginbtn" value="登录"
 					 /><label><input

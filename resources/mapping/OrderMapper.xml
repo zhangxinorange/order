@@ -13,26 +13,28 @@
      <result column="orderDate" property="orderDate" jdbcType="TIMESTAMP" />
      <result column="personname" property="userName" jdbcType="VARCHAR" />
       <result column="oStatus" property="oStatus" jdbcType="INTEGER" />
+      <result column="goodsname" property="goodsname" jdbcType="VARCHAR"/>
+      <result column="goodtype" property="goodtype" jdbcType="VARCHAR"/>
   </resultMap>
   <sql id="Base_Column_List" >
     id, orderName, customName, orderGood, ordernum, remark,uId,ordertotal,orderDate
   </sql>
   
   <sql id="Base_Column_List_t" >
-    t.id, t.orderName, t.customName, t.orderGood, t.ordernum, t.remark,t.uId,t.ordertotal,t.orderDate,p.personname 
+    t.id, t.orderName, t.customName, t.orderGood, t.ordernum, t.remark,t.uId,t.ordertotal,t.orderDate,p.personname ,g.goodsname,g.goodtype
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
-    <include refid="Base_Column_List" />
-    from ordert
-    where id = #{id,jdbcType=BIGINT}
+    <include refid="Base_Column_List_t" />
+    from   ordert  t left join person p on p.id=t.uId left join goods g on g.gid=t.ordergood
+    where t.id = #{id,jdbcType=BIGINT}
   </select>
   
   
    <select id="queryAllOrderByUserIdList" resultMap="BaseResultMap" parameterType="com.ognice.domain.Order">
     select 
     <include refid="Base_Column_List_t" /> 
-    from ordert t left join person p on p.id=t.uId
+    from ordert t left join person p on p.id=t.uId left join goods g on g.gid=t.ordergood
     where 1=1
     <if test="id!=null and id!=''">
    and  t.uId = #{id,jdbcType=BIGINT} 
@@ -101,7 +103,7 @@
   <select id="queryAllOrderByUserIdListPage"  resultMap="BaseResultMap" >
     select 
    <include refid="Base_Column_List_t" />	
-    from ordert  t left join person p on p.id=t.uId
+    from ordert  t left join person p on p.id=t.uId left join goods g on g.gid=t.ordergood
     where t.oStatus=0 
     <if test="data.id!=null and data.id!=''">
    	and  t.uId = #{data.id,jdbcType=BIGINT} 
@@ -132,7 +134,7 @@
   <select id="querydAllOrderByUserIdListPage"  resultMap="BaseResultMap" >
     select 
    <include refid="Base_Column_List_t" />	
-    from ordert  t left join person p on p.id=t.uId
+    from ordert  t left join person p on p.id=t.uId left join goods g on g.gid=t.ordergood
     where t.oStatus=1 
     <if test="data.id!=null and data.id!=''">
    	and  t.uId = #{data.id,jdbcType=BIGINT} 

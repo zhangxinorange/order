@@ -109,7 +109,7 @@ function searchlis(e){
 	        <td>${order.userName }</td>
 	        <td>${order.ordername }</td>
 	        <td>${order.customname }</td>
-	        <td>${order.ordergood }</td>
+	        <td>${order.goodsname }</td>
 	        <td>${order.ordernum }</td>
 	        <td>${order.ordertotal }</td>
 	        <td> <fmt:formatDate value="${order.orderDate}" pattern="yyyy年MM月dd日 hh点mm分ss秒"></fmt:formatDate></td>

@@ -1,5 +1,6 @@
 package com.ognice.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,11 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ognice.domain.Goods;
+import com.ognice.domain.GoodsType;
 import com.ognice.domain.Order;
 import com.ognice.domain.Person;
 import com.ognice.domain.Result;
+import com.ognice.service.IGoodsService;
 import com.ognice.service.iOrderService;
 import com.ognice.util.PageConstants;
+import com.ognice.util.ResultUtil;
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Controller
 @RequestMapping("/order")
@@ -23,9 +28,14 @@ public class OrderController {
 
 	@Autowired
 	private iOrderService orderService;
+	
+	@Autowired
+	private IGoodsService goodsService;
 
 	@RequestMapping(value = "/addOrder", method = RequestMethod.GET)
 	public String addOrder(HttpServletRequest request, Model model) {
+		List<GoodsType> gtList=goodsService.getAllGoodsType();
+		model.addAttribute("tList", gtList);
 		Person person = (Person) request.getSession().getAttribute("indexUser");
 		model.addAttribute("person", person);
 		return "user/addOrder";
@@ -34,7 +44,8 @@ public class OrderController {
 	public String editOrder(HttpServletRequest request, Model model,String oId) {
 		Person person = (Person) request.getSession().getAttribute("indexUser");
 		model.addAttribute("person", person);
-		
+		List<GoodsType> gtList=goodsService.getAllGoodsType();
+		model.addAttribute("tList", gtList);
 		Order order=orderService.selectByPrimaryKey(Long.valueOf(oId));
 		model.addAttribute("order", order);
 		return "user/editOrder";
@@ -107,6 +118,12 @@ public class OrderController {
 		}
 		
 		
+	}
+	
+	@RequestMapping(value = "/searchGoods", method = RequestMethod.POST)
+	public @ResponseBody Result searchGoods(HttpServletRequest request,Long type) {
+		List<Goods> gList=goodsService.getAllGodds(type);
+		return ResultUtil.success(gList);
 	}
 	
 	

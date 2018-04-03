@@ -8,6 +8,12 @@
 <title>订单管理系统</title>
 <link href="${ctx }/static/css/style.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="${ctx }/static/js/jquery.js"></script>
+
+<script type="text/javascript" src="${ctx }/static/js/select-ui.min.js"></script>
+<script type="text/javascript" src="${ctx }/static/js/jquery.idTabs.min.js"></script>
+<link href="${ctx }/static/css/select.css" rel="stylesheet" type="text/css" />
+
+
 </head>
 
 <body>
@@ -27,9 +33,26 @@
     <ul class="forminfo">
     <li><label>订单名称</label><input name="ordername" id="ordername" type="text" class="dfinput" /></li>
     <li><label>客户名称</label><input name="customname" id="customname" type="text" class="dfinput" /></li>
-    <li><label>采购物资</label><input name="ordergood" id="ordergood" type="text" class="dfinput" /></li>
+   <!--  <li><label>采购物资类型</label>
+    	<input name="ordergood" id="ordergood" type="text" class="dfinput" />
+    </li> -->
+     <li><label>采购物资类型</label>
+    	<!-- <input name="ordergood" id="ordergood" type="text" class="dfinput" /> -->
+    	<div class="vocation">
+    		<select class="select2" name="goodtype" id="goodtype" onchange="javascript:changeGoods();">
+				   <c:forEach var="type" items="${tList }">
+        				<option value="${type.tid }" >${type.tname }</option>
+        			</c:forEach>
+				   </select>
+    </li>
+    <li><label>采购物资</label>
+    	<!-- <input name="ordergood" id="ordergood" type="text" class="dfinput" /> -->
+    	<div class="vocation">
+    		<select class="select2" name="ordergood" id="ordergood">
+    			
+			</select>
+    </li>
     <li><label>采购数量</label><input name="ordernum" id="ordernum" type="number" class="dfinput"  /></li>
-    
      <li><label>订单总金额</label><input name="ordertotal" type="number" class="dfinput"  />
     <input name="uId" type="hidden" value="${person.id }" /></li>
     <li><label>备注</label><textarea name="remark" cols="" rows="" class="textinput"></textarea></li>
@@ -43,7 +66,6 @@
 <script language="javascript">
 	$(function(){
 		$("#format").click(function(){
-			debugger;
 			if($("#ordername").val()=="")
 			{
 				alert("订单名称不能为空");
@@ -73,8 +95,49 @@
 			
 		});
 		$("#reset").click(function(){
-			parent.location.href="${ctx}/index";
+			window.location.href="${ctx}/order/orderList";
+		});
+		
+		$(".select1").uedSelect({
+			width : 345			  
+		});
+		$(".select2").uedSelect({
+			width : 167  
+		});
+		$(".select3").uedSelect({
+			width : 100
 		});
 	});
+	function changeGoods()
+	{
+		var type=$("#goodtype").val();
+		$.ajax({
+            url: "${ctx}/order/searchGoods",
+            data: { type: type },
+            type: "post",
+            dataType:'json',
+            success: function (data) {
+           		if(data.code==0)
+        		{
+           			var d=eval(data.data);
+           			$("#ordergood").val();
+           			$("#ordergood").empty();
+           			var str="<option value=''>请选择</option>";
+           			$.each(d, function(i, p) {  //遍历json数组时，这么写p为索引，0,1
+           				str += '<option value="'+p.gid+'">'+p.goodsname+'</option>';
+           			});
+           			$("#ordergood").append(str);
+        		}
+           		else
+          		{
+           				
+          		}
+           		
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
+            }
+        });
+	}
 </script>
 </html>

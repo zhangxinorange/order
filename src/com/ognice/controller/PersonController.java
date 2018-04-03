@@ -161,14 +161,26 @@ public class PersonController {
 			opageSize=PageConstants.PAGESIZE;
 		}
 		model.addAttribute("osize", opageSize);
+		Integer gSize=(Integer)request.getServletContext().getAttribute("gPage");
+		if (gSize==null) {
+			gSize=PageConstants.PAGESIZE;
+		}
+		model.addAttribute("gsize", gSize);
+		Integer gtSize=(Integer)request.getServletContext().getAttribute("gtPage");
+		if (gtSize==null) {
+			gtSize=PageConstants.PAGESIZE;
+		}
+		model.addAttribute("gtsize", gtSize);
 		return "admin/changePage";
 	}
 	@RequestMapping(value="updatePage",method=RequestMethod.POST)
-	public String changePage(HttpServletRequest request,HttpServletResponse response,Integer userPage,Integer orderPage,ModelMap model)
+	public String changePage(HttpServletRequest request,HttpServletResponse response,Integer userPage,Integer orderPage,ModelMap model,Integer gPage,Integer gtPage)
 	{
 		ServletContext app = request.getServletContext();
 		app.setAttribute("uPage", userPage);
 		app.setAttribute("oPage", orderPage);
+		app.setAttribute("gPage", gPage);
+		app.setAttribute("gtPage", gtPage);
 		model.addAttribute("result", new Result<>(0, "修改成功!", "/person/pList"));
 		return "admin/success";
 	}

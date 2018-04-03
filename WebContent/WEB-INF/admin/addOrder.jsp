@@ -73,7 +73,7 @@
 			
 		});
 		$("#reset").click(function(){
-			parent.location.href="${ctx}/index";
+			window.location.href="${ctx}/index";
 		});
 	});
 </script>

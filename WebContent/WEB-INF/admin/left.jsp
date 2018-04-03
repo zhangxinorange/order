@@ -68,12 +68,28 @@ function changeLi_1()
         <li id="addLis"><cite></cite><a href="${ctx }/person/addPerson" target="rightFrame">添加用户</a><i></i></li>
         </ul>     
     </dd> 
+    
+    
+     <dd><div class="title"><span><img src="${ctx }/static/images/leftico04.png" /></span>商品管理</div>
+    <ul class="menuson">
+        <li id="userList"><cite></cite><a href="${ctx }/goods/gList" target="rightFrame">商品管理</a><i></i></li>
+        <li id="addLis"><cite></cite><a href="${ctx }/goodsType/gtList" target="rightFrame">商品类别管理</a><i></i></li>
+        
+    </ul>
+    
+    </dd>  
+    
+    
+    
     <dd><div class="title"><span><img src="${ctx }/static/images/leftico03.png" /></span>系统管理</div>
     <ul class="menuson">
         <li><cite></cite><a href="${ctx }/person/gotoPage" target="rightFrame">分页条数变更</a><i></i></li>
         
     </ul>    
-    </dd>    
+    </dd>  
+    
+    
+   
     
     
     </dl>

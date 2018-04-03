@@ -64,6 +64,11 @@
 				alert("采购数量不能为空");
 				return;
 			}
+			if($(".ordertotal").val()=="")
+			{
+				alert("订单总金额不能为空");
+				return;
+			}
 			$("#form1").submit();
 			
 		});

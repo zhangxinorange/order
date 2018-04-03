@@ -139,8 +139,26 @@ public class Order implements java.io.Serializable{
 		this.oStatus = oStatus;
 	}
 
-	
-	
+    private String goodsname;
+
+	public String getGoodsname() {
+		return goodsname;
+	}
+
+	public void setGoodsname(String goodsname) {
+		this.goodsname = goodsname;
+	}
+    
+    private String goodtype;
+
+	public String getGoodtype() {
+		return goodtype;
+	}
+
+	public void setGoodtype(String goodtype) {
+		this.goodtype = goodtype;
+	}
+    
     
 	
 }
