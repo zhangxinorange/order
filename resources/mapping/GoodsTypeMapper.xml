@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ognice.dao.GoodsTypeMapper">
+	<resultMap id="BaseResultMap" type="com.ognice.domain.GoodsType">
+		<id column="tId" property="tid" jdbcType="BIGINT" />
+		<result column="tName" property="tname" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="createDate" property="createdate" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		tId, tName, status, createDate
+	</sql>
+	<sql id="Base_Column_List_t">
+		t.tId, t.tName, t.status, t.createDate
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from goodstype
+		where tId = #{tid,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from goodstype
+		where tId = #{tid,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.ognice.domain.GoodsType">
+		insert into goodstype (tId, tName, status,
+		createDate)
+		values (#{tid,jdbcType=BIGINT}, #{tname,jdbcType=VARCHAR},
+		#{status,jdbcType=INTEGER},
+		#{createdate,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.ognice.domain.GoodsType">
+		insert into goodstype
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="tid != null">
+				tId,
+			</if>
+			<if test="tname != null">
+				tName,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="createdate != null">
+				createDate,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="tid != null">
+				#{tid,jdbcType=BIGINT},
+			</if>
+			<if test="tname != null">
+				#{tname,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="createdate != null">
+				#{createdate,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.ognice.domain.GoodsType">
+		update goodstype
+		<set>
+			<if test="tname != null">
+				tName = #{tname,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="createdate != null">
+				createDate = #{createdate,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where tId = #{tid,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.ognice.domain.GoodsType">
+		update goodstype
+		set tName = #{tname,jdbcType=VARCHAR},
+		status = #{status,jdbcType=INTEGER},
+		createDate = #{createdate,jdbcType=TIMESTAMP}
+		where tId = #{tid,jdbcType=BIGINT}
+	</update>
+	
+	
+	
+	
+	<select id="countGoodsType" resultType="integer"
+		parameterType="com.ognice.domain.GoodsType">
+		select
+		count(*)
+		from goodstype t
+		where t.status=0  
+		<if test="tname!=null and tname!=''">
+			and (lower(t.tname) like
+			CONCAT('%',#{tname},'%') or
+			upper(t.tname) like
+			CONCAT('%',#{tname},'%')
+			)
+		</if>
+		
+	</select>
+
+	<select id="quertGoodsTypeList" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List_t" />
+		from goodstype t
+		where t.status=0  
+		<if test="data.tname!=null and data.tname!=''">
+			and (lower(t.tname) like
+			CONCAT('%',#{data.tname},'%') or
+			upper(t.tname) like
+			CONCAT('%',#{data.tname},'%')
+			)
+		</if>
+
+		order by createDate desc
+		limit #{start},#{end}
+	</select>
+	
+	
+	
+	<select id="getAllGoodsType" resultMap="BaseResultMap">
+		select * from goodstype t where t.status=0 order by t.createdate desc 
+	</select>
+</mapper>

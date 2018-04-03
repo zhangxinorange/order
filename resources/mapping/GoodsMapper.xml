@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ognice.dao.GoodsMapper">
+	<resultMap id="BaseResultMap" type="com.ognice.domain.Goods">
+		<id column="gId" property="gid" jdbcType="BIGINT" />
+		<result column="goodsName" property="goodsname" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="createDate" property="createdate" jdbcType="TIMESTAMP" />
+		<result column="goodType" property="goodtype" jdbcType="BIGINT" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		gId, goodsName, status, createDate, goodType
+	</sql>
+	
+	<sql id="Base_Column_List_t">
+		t.gId, t.goodsName, t.status, t.createDate, t.goodType ,p.tName
+	</sql>
+	
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from goods
+		where gId = #{gid,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from goods
+		where gId = #{gid,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.ognice.domain.Goods">
+		insert into goods (gId, goodsName, status,
+		createDate, goodType)
+		values (#{gid,jdbcType=BIGINT}, #{goodsname,jdbcType=VARCHAR},
+		#{status,jdbcType=INTEGER},
+		#{createdate,jdbcType=TIMESTAMP}, #{goodtype,jdbcType=BIGINT})
+	</insert>
+	<insert id="insertSelective" parameterType="com.ognice.domain.Goods">
+		insert into goods
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="gid != null">
+				gId,
+			</if>
+			<if test="goodsname != null">
+				goodsName,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="createdate != null">
+				createDate,
+			</if>
+			<if test="goodtype != null">
+				goodType,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="gid != null">
+				#{gid,jdbcType=BIGINT},
+			</if>
+			<if test="goodsname != null">
+				#{goodsname,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="createdate != null">
+				#{createdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="goodtype != null">
+				#{goodtype,jdbcType=BIGINT},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.ognice.domain.Goods">
+		update goods
+		<set>
+			<if test="goodsname != null">
+				goodsName = #{goodsname,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="createdate != null">
+				createDate = #{createdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="goodtype != null">
+				goodType = #{goodtype,jdbcType=BIGINT},
+			</if>
+		</set>
+		where gId = #{gid,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.ognice.domain.Goods">
+		update goods
+		set goodsName = #{goodsname,jdbcType=VARCHAR},
+		status = #{status,jdbcType=INTEGER},
+		createDate = #{createdate,jdbcType=TIMESTAMP},
+		goodType = #{goodtype,jdbcType=BIGINT}
+		where gId = #{gid,jdbcType=BIGINT}
+	</update>
+
+
+
+
+
+
+
+
+	<select id="countGoods" resultType="integer"
+		parameterType="com.ognice.domain.Goods">
+		select
+		count(*)
+		from goods t left join goodstype p on p.tid=t.goodType
+		where t.status=0  and p.status=0
+		<if test="goodsname!=null and goodsname!=''">
+			and (lower(t.goodsname) like
+			CONCAT('%',#{goodsname},'%') or
+			upper(t.goodsname) like
+			CONCAT('%',#{goodsname},'%')
+			)
+		</if>
+		<if test="goodtype!=null and goodtype!=''">
+			and t.goodtype=#{goodtype}
+		</if>
+		
+	</select>
+
+	<select id="queryGoodsList" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List_t" />
+		from goods t inner join goodstype p on p.tid=t.goodType
+		where t.status=0  and p.status=0
+		<if test="data.goodsname!=null and data.goodsname!=''">
+			and (lower(t.goodsname) like
+			CONCAT('%',#{data.goodsname},'%') or
+			upper(t.goodsname) like
+			CONCAT('%',#{data.goodsname},'%')
+			)
+		</if>
+		<if test="data.goodtype!=null and data.goodtype!=''">
+			and t.goodtype=#{data.goodtype}
+		</if>
+
+		order by createDate desc
+		limit #{start},#{end}
+	</select>
+
+	<select id="getAllGodds" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List_t" />
+		from goods t inner join goodstype p on p.tid=t.goodType
+		where t.status=0  and p.status=0
+		<if test="goodtype!=null and goodtype!=''">
+			and t.goodtype=#{goodtype}
+		</if>
+
+		order by createDate desc
+	</select>
+
+</mapper>
